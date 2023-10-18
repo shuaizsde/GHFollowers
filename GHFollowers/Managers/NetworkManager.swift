@@ -6,46 +6,94 @@
 //  Copyright © 2023 Simon Zhang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Singleton
 final class NetworkManager {
+
 	static let shared = NetworkManager()
 
-	private init() {}
+	private let baseUrl = "https://api.github.com/users/"
+	private let APIClient = GFAPIClient.shared
 
-	let baseUrl = "https://api.github.com/users/"
+
+	init() {}
 
 	func getFollowers(for userName: String, page: Int, completion: @escaping (Result<[Follower], GFError>) -> Void) {
 		let endPoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"
 
-		guard let url = URL(string: endPoint) else {
-			completion(.failure(.invalidUsername))
-			return
-		}
-		let task = URLSession.shared.dataTask(with: url) { data, response, error in
-			if let error = error {
-				completion(.failure(.unableToComplete(errorMessage: error.localizedDescription)))
-				return
-			}
-			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
-				completion(.failure(.invalidResponse))
-				return
-			}
-			guard let data = data else {
-				completion(.failure(.invalidData))
-				return
-			}
-			do {
-				let decoder = JSONDecoder()
-				decoder.keyDecodingStrategy = .convertFromSnakeCase
-				let followers = try decoder.decode([Follower].self, from: data)
+		APIClient.fetchData(url: endPoint) { (result: Result<[Follower], GFNetworkError>) in
+			switch result {
+			case .success(let followers):
 				completion(.success(followers))
-			} catch {
-				completion(.failure(.invalidData))
+			case .failure(let error):
+				switch error {
+				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError:
+					completion(.failure(.networkIssue))
+				case .invalidResponseCode(let code):
+					if code == 404 {
+						completion(.failure(.userNotExist))
+					}else {
+						completion(.failure(.networkIssue))
+					}
+				}
 			}
 		}
-		task.resume()
+	}
+	
+	func getUserInfo(for userName: String, completion: @escaping (Result<User, GFError>) -> Void) {
+		let endPoint = baseUrl + "\(userName)"
+		APIClient.fetchData(url: endPoint) { (result: Result<User, GFNetworkError>) in
+			switch result {
+			case .success(let user):
+				completion(.success(user))
+			case .failure(let error):
+				switch error {
+				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError:
+					completion(.failure(.networkIssue))
+				case .invalidResponseCode(let code):
+					if code == 404 {
+						completion(.failure(.userNotExist))
+					}else {
+						completion(.failure(.networkIssue))
+					}
+				}
+			}
+		}
 	}
 
+	// TODO: Decide either fetching from DB or call API Client, optimize checking if should fetch thumbnail or original picture
+	func fetchImage(from urlString: String, completion: @escaping ((UIImage) -> Void)) {
+		APIClient.fetchImage(from: urlString) { image in
+			completion(image)
+		}
+	}
 }
+
+
+//// Async Practice
+//extension NetworkManager {
+//
+//	func fetchImageAsync(from urlString: String) async -> UIImage? {
+//
+//		let cacheKey = NSString(string: urlString)
+//		if let image = cache.object(forKey: cacheKey) {
+//			print("used cache for: \(urlString)")
+//			return image
+//		}
+//
+//		guard let url = URL(string: urlString) else { return nil }
+//
+//		do {
+//			let (data, _) = try await URLSession.shared.data(for: URLRequest(url: url))
+//			guard let image = UIImage(data: data) else {
+//				return nil
+//			}
+//			self.cache.setObject(image, forKey: cacheKey)
+//			return image
+//		} catch {
+//			return nil
+//		}
+//
+//	}
+//}

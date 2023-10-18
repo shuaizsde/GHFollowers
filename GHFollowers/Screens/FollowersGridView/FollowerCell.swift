@@ -25,11 +25,14 @@ class FollowerCell: UICollectionViewCell {
 
 	func set(follower: Follower) {
 		userNameLabel.text = follower.login
+		avatarImageView.downloadImage(from: follower.avatarUrl)
 	}
 
 	private func configure() {
-		addSubview(avatarImageView)
-		addSubview(userNameLabel)
+		contentView.addSubview(avatarImageView)
+		contentView.addSubview(userNameLabel)
+		userNameLabel.adjustsFontSizeToFitWidth = false
+		userNameLabel.numberOfLines = 2
 
 		NSLayoutConstraint.activate([
 			avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
@@ -40,9 +43,7 @@ class FollowerCell: UICollectionViewCell {
 			userNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
 			userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
 			userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-			usernameLabel.heightAnchor.constraint(equalToConstant: 20)
 		])
-
 	}
 
 

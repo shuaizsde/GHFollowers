@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol GFAlertVCDelegate: AnyObject {
+	func didTapAlertButton()
+}
+
 class GFAlertVC: UIViewController {
 
-	let containerView = UIView()
+	let containerView 	= UIView()
 	let titleLabel 		= GFTitleLabel(textAlignment: .center, fontSize: 20)
 	let messageLabel 	= GFBodyLabel(textAlignment: .center)
 	let actionButton 	= GFButton(backgroundColor: .systemPink, title: "OK")
@@ -18,6 +22,8 @@ class GFAlertVC: UIViewController {
 	var alertTitle: String?
 	var message: String?
 	var buttonTitle: String?
+
+	var delegate: GFAlertVCDelegate?
 
 	let padding: CGFloat = 20
 
@@ -44,9 +50,11 @@ class GFAlertVC: UIViewController {
 
 	@objc func dismissVC() {
 		dismiss(animated: true)
+		delegate?.didTapAlertButton()
 	}
 }
 
+// Configure UI
 extension GFAlertVC {
 
 	func configureContainerView() {

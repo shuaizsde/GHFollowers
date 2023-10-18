@@ -8,7 +8,7 @@
 
 import Foundation
 
-/*
+/***
  ❯ curl https://api.github.com/users/zhang86036055
  {
    "login": "zhang86036055",
@@ -68,7 +68,7 @@ import Foundation
 	 "site_admin": false
    }
  ]
- */
+ ***/
 
 struct Follower: Codable, Hashable {
 	var login: String
@@ -77,18 +77,4 @@ struct Follower: Codable, Hashable {
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(login)
 	}
-}
-
-struct User: Codable {
-	var login: String
-	var avatarUrl: String
-	var name: String?
-	var location: String?
-	var bio: String?
-	var publicRepos: Int
-	var publicGists: Int
-	var htmlUrl: String
-	var following: Int
-	var followers: Int
-	var createdAt: String
 }

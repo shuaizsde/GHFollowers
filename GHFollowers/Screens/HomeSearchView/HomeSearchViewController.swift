@@ -1,5 +1,5 @@
 //
-//  SearchVC.swift
+//  HomeSearchViewController.swift
 //  GHFollowers
 //
 //  Created by Shuai Zhang on 10/12/23.
@@ -8,32 +8,65 @@
 
 import UIKit
 
-class SearchVC: UIViewController {
+class HomeSearchViewController: UIViewController {
 
-	var isUserNameEntered: Bool { !userNameTextField.text!.isEmpty }
 
 	let logoImageView = UIImageView()
 	let userNameTextField = GFTextField()
 	let actionButton = GFButton(backgroundColor: .systemGreen, title: "Search")
 
+	var isUserNameEntered: Bool { !userNameTextField.text!.isEmpty }
+
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		view.backgroundColor = .systemBackground
-		confitureLogoImageView()
-		confitureTextField()
-		confitureActionButton()
+		configureUI()
 		createDismissKeyboardTapGesture()
-    }
+		configureActions()
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.isNavigationBarHidden = true
+		userNameTextField.text = ""
+		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 
-	// MARK: Configure Views
+	// MARK: Actions
+
+	func createDismissKeyboardTapGesture() {
+		let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+		view.addGestureRecognizer(tap)
+	}
+
+	func configureActions() {
+		userNameTextField.delegate = self
+		actionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
+	}
+
+	@objc func pushFollowerListVC() {
+		guard isUserNameEntered else {
+			presentGFAlertOnMainThread(title: "Empty user name", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "OK")
+			return
+		}
+
+		let followerListVC = FollowersGridViewController(userName: userNameTextField.text ?? "")
+		navigationController?.pushViewController(followerListVC, animated: true)
+	}
+}
+
+// MARK: Configure UI
+extension HomeSearchViewController {
+
+	func configureUI() {
+		confitureLogoImageView()
+		confitureTextField()
+		confitureSearchButton()
+	}
+
 	func confitureLogoImageView() {
 		view.addSubview(logoImageView)
 		logoImageView.translatesAutoresizingMaskIntoConstraints = false
+
 		logoImageView.image = UIImage(named: "gh-logo")!
 
 		NSLayoutConstraint.activate([
@@ -46,7 +79,6 @@ class SearchVC: UIViewController {
 
 	func confitureTextField() {
 		view.addSubview(userNameTextField)
-		userNameTextField.delegate = self
 		userNameTextField.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -57,10 +89,10 @@ class SearchVC: UIViewController {
 		])
 	}
 
-	func confitureActionButton() {
+	func confitureSearchButton() {
 		view.addSubview(actionButton)
 		actionButton.translatesAutoresizingMaskIntoConstraints = false
-		actionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
+
 		NSLayoutConstraint.activate([
 			actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
 			actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -68,33 +100,10 @@ class SearchVC: UIViewController {
 			actionButton.heightAnchor.constraint(equalToConstant: 50)
 		])
 	}
-
-	@objc func pushFollowerListVC() {
-		guard isUserNameEntered else {
-			presentGFAlertOnMainThread(
-				title: "Empty user name",
-				message: "Please enter a username, We need to know who are you looking for",
-				buttonTitle: "OK"
-			)
-			return
-		}
-
-		let followerListVC = FollowerListVC()
-		followerListVC.userName = userNameTextField.text
-		followerListVC.title = userNameTextField.text
-
-		navigationController?.pushViewController(followerListVC, animated: true)
-	}
-
-	// MARK: Dismiss Keyboard
-	func createDismissKeyboardTapGesture() {
-		let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-		view.addGestureRecognizer(tap)
-	}
-	
 }
 
-extension SearchVC: UITextFieldDelegate {
+
+extension HomeSearchViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		pushFollowerListVC()
 		return true
