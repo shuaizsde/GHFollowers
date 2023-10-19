@@ -12,7 +12,7 @@ protocol UserInfoViewControllerDelegate {
 	func didRequestFollowers(for userName: String)
 }
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: GFDataLoadingVC {
 
 
 	let headerView          = UIView()

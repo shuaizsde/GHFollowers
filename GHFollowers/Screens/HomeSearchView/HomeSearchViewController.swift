@@ -49,7 +49,9 @@ class HomeSearchViewController: UIViewController {
 			return
 		}
 
-		let followerListVC = FollowersGridViewController(userName: userNameTextField.text ?? "")
+		userNameTextField.resignFirstResponder()
+
+		let followerListVC = FollowersGridViewController(userName: userNameTextField.text!)
 		navigationController?.pushViewController(followerListVC, animated: true)
 	}
 }
@@ -67,7 +69,7 @@ extension HomeSearchViewController {
 		view.addSubview(logoImageView)
 		logoImageView.translatesAutoresizingMaskIntoConstraints = false
 
-		logoImageView.image = UIImage(named: "gh-logo")!
+		logoImageView.image = Images.ghLogo
 
 		NSLayoutConstraint.activate([
 			logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
@@ -101,7 +103,6 @@ extension HomeSearchViewController {
 		])
 	}
 }
-
 
 extension HomeSearchViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {

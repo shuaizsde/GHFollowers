@@ -11,7 +11,9 @@ class GFAPIClient {
 	let cache = NSCache<NSString, UIImage>()
 	static let shared = GFAPIClient()
 	let decoder: JSONDecoder
-
+	var token: String? {
+		AuthenticationManager.shared.loadToken()
+	}
 	private init() {
 		decoder = JSONDecoder()
 		decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -19,11 +21,18 @@ class GFAPIClient {
 	}
 
 	func fetchData<Entity>(url: String, completion: @escaping (Result<Entity, GFNetworkError>) -> Void) where Entity: Codable {
+
 		guard let url = URL(string: url) else {
 			completion(.failure(.invalidURL))
 			return
 		}
-		let task = URLSession.shared.dataTask(with: url) { data, response, error in
+
+		var request = URLRequest(url: url)
+		if let token = self.token {
+			request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+		}
+
+		let task = URLSession.shared.dataTask(with: request) { data, response, error in
 			if let error = error {
 				completion(.failure(.unexpectedError(errorMessage: error.localizedDescription)))
 				return
@@ -56,12 +65,18 @@ class GFAPIClient {
 		let cacheKey = NSString(string: urlString)
 
 		if let image = cache.object(forKey: cacheKey) {
-			print("used cache for: \(urlString)")
+			// print("used cache for: \(urlString)")
 			completion(image)
 		}
 		guard let url = URL(string: urlString) else { return }
 
-		let task = URLSession.shared.dataTask(with: URLRequest(url: url)) {[weak self] data, response, error in
+		var request = URLRequest(url: url)
+		
+		if let token = self.token {
+			request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+		}
+
+		let task = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
 			guard let self else {return}
 			guard error == nil else {return}
 			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {return}

@@ -9,10 +9,13 @@
 import UIKit
 
 class FollowerCell: UICollectionViewCell {
+
     static let reuseID = "FollowerCell"
-	let avatarImageView = GFAvatarImageView(frame: .zero)
-	let userNameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
-	let padding: CGFloat = 8
+
+	private let avatarImageView = GFAvatarImageView(frame: .zero)
+	private let userNameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
+
+	private let padding: CGFloat = 8
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)

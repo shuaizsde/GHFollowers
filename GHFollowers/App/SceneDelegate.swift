@@ -20,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 		let searchNavigationController = createSearchNC()
 		let favoritesNavigationController = createFavoritesNC()
+		let settingsNavigationController = createSettingsNC()
 		let tabBarController = UITabBarController()
 		UITabBar.appearance().tintColor = .systemGreen
-		tabBarController.viewControllers = [searchNavigationController, favoritesNavigationController]
+		tabBarController.viewControllers = [searchNavigationController, favoritesNavigationController, settingsNavigationController]
 
 		UINavigationBar.appearance().tintColor = .systemGreen
 
@@ -44,6 +45,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		favoritesListVC.title = "Favorites"
 		favoritesListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
 		return UINavigationController(rootViewController: favoritesListVC)
+	}
+
+	private func createSettingsNC() -> UINavigationController {
+		let settingsVC = SettingsViewController()
+		settingsVC.title = "Settings"
+		settingsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+		return UINavigationController(rootViewController: settingsVC)
 	}
 
 
