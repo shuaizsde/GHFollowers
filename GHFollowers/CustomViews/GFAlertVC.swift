@@ -23,7 +23,7 @@ class GFAlertVC: UIViewController {
 	var message: String?
 	var buttonTitle: String?
 
-	var delegate: GFAlertVCDelegate?
+	weak var delegate: GFAlertVCDelegate?
 
 	let padding: CGFloat = 20
 

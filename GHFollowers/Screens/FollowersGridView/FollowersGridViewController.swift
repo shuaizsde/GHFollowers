@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol FavoriateListVCDelegate: AnyObject {
-	func didRequestFollowers(for username: String)
-}
-
 class FollowersGridViewController: GFDataLoadingVC {
 	enum Section { case main }
 
@@ -19,27 +15,27 @@ class FollowersGridViewController: GFDataLoadingVC {
 
 	var page                            = 1
 	var hasMoreFollowers                = true
-	var isSearching                     = false
+	var isSearching                     = false{
+		didSet {
+			print("isSearching: \(isSearching)")
+		}
+	}
 	var isLoadingMoreFollowers          = false
 
 	var collectionView: UICollectionView!
 	var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 
-	var filteredFollowers: [Follower]   = [] {
-		didSet {
-			print("Filtered array was set. New count: \(filteredFollowers.count)")
-		}
-	}
-	private var followers: [Follower] = [] {
-		didSet {
-			print("Followers array was set. New count: \(followers.count)")
-		}
-	}
+	var filteredFollowers: [Follower]   = []
+	private var followers: [Follower]   = []
 
 	init(userName: String) {
 		super.init(nibName: nil, bundle: nil)
 		self.userName   = userName
 		title           = userName
+	}
+
+	deinit {
+		print("Followers controller is deinited")
 	}
 
 	required init?(coder: NSCoder) {
@@ -48,7 +44,6 @@ class FollowersGridViewController: GFDataLoadingVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		configureViewController()
 		configureCollectionView()
 		configureSearchController()
@@ -72,12 +67,17 @@ class FollowersGridViewController: GFDataLoadingVC {
 	}
 
 	private func configureCollectionView() {
-		collectionView = UICollectionView(
-			frame: view.bounds,
-			collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view)
-		)
+		let layout = UIHelper.createThreeColumnFlowLayout(in: view)
+
+		collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+
+		layout.footerReferenceSize = CGSize(width: collectionView.bounds.width, height: 50) // Set footer size after initializing collectionView
+
+		collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "FooterView")
+
 		view.addSubview(collectionView)
 		collectionView.delegate = self
+		collectionView.dataSource = dataSource  // Assuming you'll also implement the data source methods
 		collectionView.backgroundColor = .systemBackground
 		collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
 	}
@@ -89,10 +89,23 @@ class FollowersGridViewController: GFDataLoadingVC {
 			return cell
 		}
 
-		// Ensure that there's at least one section
-		var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
-		initialSnapshot.appendSections([.main])
-		dataSource.apply(initialSnapshot, animatingDifferences: false)
+
+		dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+			guard let self = self else { return nil }
+			if kind == UICollectionView.elementKindSectionFooter {
+				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FooterView", for: indexPath) as! FooterView
+				if !self.hasMoreFollowers {
+					footerView.label.text = "No more users"
+				}
+				return footerView
+			}
+			return nil
+		}
+
+//		// Ensure that there's at least one section
+//		var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+//		initialSnapshot.appendSections([.main])
+//		dataSource.apply(initialSnapshot, animatingDifferences: false)
 	}
 
 	func configureSearchController() {
@@ -102,43 +115,6 @@ class FollowersGridViewController: GFDataLoadingVC {
 		searchController.searchBar.placeholder = "Search for a user name"
 		navigationItem.searchController = searchController
 
-	}
-	// MARK: Update Data
-
-	private func getFollowers(userName: String, page: Int) {
-		self.showLoadingView()
-		isLoadingMoreFollowers = true
-
-		NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
-			guard let self = self else { return }
-
-			switch result {
-			case .failure(let error):
-				self.presentGFAlertOnMainThread(title: error.title, message: error.rawValue, buttonTitle: "OK")
-				self.dismissLoadingView()
-			case .success(let followers):
-				if followers.count < 100 { self.hasMoreFollowers = false }
-				self.followers.append(contentsOf: followers)
-				self.dismissLoadingView()
-				if self.followers.isEmpty {
-					DispatchQueue.main.async {
-						self.showEmptyStateView(with: "\(userName) doesn't have any followers. Go follow them😅", in: self.view)
-					}
-					return
-				}
-				self.isLoadingMoreFollowers = false
-				
-				self.updateData(on: followers)
-			}
-		}
-	}
-
-	func updateData(on followers: [Follower]) {
-		
-		var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
-		snapshot.appendSections([.main])
-		snapshot.appendItems(followers)
-		DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
 	}
 
 	// MARK: Add To Favoriate
@@ -151,7 +127,7 @@ class FollowersGridViewController: GFDataLoadingVC {
 				self.addUserToFavorites(user: user)
 				self.dismissLoadingView()
 			case .failure(let error):
-				presentGFAlertOnMainThread(title: error.title, message: error.rawValue, buttonTitle: "Ok")
+				showAlert(title: error.title, message: error.rawValue, buttonTitle: "Ok")
 			}
 		}
 	}
@@ -163,14 +139,14 @@ class FollowersGridViewController: GFDataLoadingVC {
 
 			guard let error = error else {
 				DispatchQueue.main.async {
-					self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favorited this user 🎉", buttonTitle: "Hooray!")
+					self.showAlert(title: "Success!", message: "You have successfully favorited this user 🎉", buttonTitle: "Hooray!")
 				}
 
 				return
 			}
 
 			DispatchQueue.main.async {
-				self.presentGFAlertOnMainThread(title: error.title, message: error.rawValue, buttonTitle: "Ok")
+				self.showAlert(title: error.title, message: error.rawValue, buttonTitle: "Ok")
 			}
 		}
 	}
@@ -178,15 +154,54 @@ class FollowersGridViewController: GFDataLoadingVC {
 
 //MARK: Search
 extension FollowersGridViewController: UISearchResultsUpdating, UISearchBarDelegate {
+
+	private func getFollowers(userName: String, page: Int) {
+		self.showLoadingView()
+		isLoadingMoreFollowers = true
+
+		NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
+			guard let self = self else { return }
+
+			switch result {
+			case .failure(let error):
+				self.showAlert(title: error.title, message: error.rawValue, buttonTitle: "OK")
+				self.dismissLoadingView()
+			case .success(let followers):
+				if followers.count < 100 { self.hasMoreFollowers = false }
+				self.followers.append(contentsOf: followers)
+				self.dismissLoadingView()
+				self.isLoadingMoreFollowers = false
+				if self.followers.isEmpty {
+					DispatchQueue.main.async {
+						self.showEmptyStateView(with: "\(userName) doesn't have any followers. Go follow them😅", in: self.view)
+					}
+					return
+				}
+
+				self.updateData(on: self.followers)
+			}
+		}
+	}
+
+	func updateData(on followers: [Follower]) {
+		var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+		snapshot.appendSections([.main])
+		snapshot.appendItems(followers)
+
+		DispatchQueue.main.async {
+			self.dataSource.apply(snapshot, animatingDifferences: true)
+		}
+	}
+
 	func updateSearchResults(for searchController: UISearchController) {
-		isSearching = true
 		guard let searchKey = searchController.searchBar.text, !searchKey.isEmpty else { return }
+		self.isSearching = true
 		filteredFollowers = followers.filter({$0.login.lowercased().contains(searchKey.lowercased())})
 		updateData(on: filteredFollowers)
 	}
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-		isSearching = false
+		self.isSearching = false
 		updateData(on: followers)
 	}
 
@@ -197,13 +212,8 @@ extension FollowersGridViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
 		let rootViewController = UserInfoViewController(userName: follower.login)
-		rootViewController.followerGridViewDelegate = self
+		rootViewController.delegate = self
 		let destinationVC = UINavigationController(rootViewController: rootViewController)
-
-		// Navigated next view
-		// let destinationVC = UserInfoViewController()
-		// navigationController?.pushViewController(destinationVC, animated: true)
-		// BottomSheet
 		present(destinationVC, animated: true)
 	}
 
@@ -233,26 +243,45 @@ extension FollowersGridViewController: UserInfoViewControllerDelegate {
 	}
 }
 
-// MARK: when alert message button tapped, back to previous vc
-extension FollowersGridViewController: GFAlertVCDelegate {
-	 func didTapAlertButton() {
-		 DispatchQueue.main.async {
-			 self.navigationController?.popViewController(animated: true)
-		 }
-	}
-}
 
-//
-//	private func updateData(on followers: [Follower]) {
-//		var currentSnapshot = dataSource.snapshot()
-//
-//		// Ensure the section exists before appending items
-//		if !currentSnapshot.sectionIdentifiers.contains(.main) {
-//			currentSnapshot.appendSections([.main])
-//		}
-//
-//		currentSnapshot.appendItems(followers, toSection: .main)
-//		DispatchQueue.main.async {
-//			self.dataSource.apply(currentSnapshot, animatingDifferences: true)
-//		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//// MARK: when alert message button tapped, back to previous vc
+//extension FollowersGridViewController: GFAlertVCDelegate {
+//	 func didTapAlertButton() {
+//		 DispatchQueue.main.async {
+//			 self.navigationController?.popViewController(animated: true)
+//		 }
 //	}
+//}
+
+

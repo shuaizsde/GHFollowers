@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol GFItemInfoVCDelegate {
-	func didTapItemInfoButton(viewController: UIViewController)
+protocol GFItemInfoVCDelegate: AnyObject {
+	func didTapItemInfoButton(viewController: GFItemInfoVC)
 }
 
 class GFItemInfoVC: UIViewController {
@@ -19,7 +19,7 @@ class GFItemInfoVC: UIViewController {
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton    = GFButton()
 
-	var delegate: GFItemInfoVCDelegate?
+	weak var delegate: GFItemInfoVCDelegate?
     var user: User!
     
     

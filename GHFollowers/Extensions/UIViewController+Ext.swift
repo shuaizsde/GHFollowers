@@ -20,7 +20,7 @@ extension UIViewController {
 		present(alertVC, animated: true)
 	}
 
-	func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String) {
+	func showAlert(title: String, message: String, buttonTitle: String) {
 		DispatchQueue.main.async {
 			let alertVC = GFAlertVC(title: title, message: message, buttonTitle: buttonTitle)
 			alertVC.delegate = self as? GFAlertVCDelegate

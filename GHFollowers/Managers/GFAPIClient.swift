@@ -8,7 +8,9 @@
 
 import UIKit
 class GFAPIClient {
+
 	let cache = NSCache<NSString, UIImage>()
+
 	static let shared = GFAPIClient()
 	let decoder: JSONDecoder
 	var token: String? {
@@ -83,7 +85,7 @@ class GFAPIClient {
 			guard let data = data else {return}
 
 			guard let image = UIImage(data: data) else {return}
-			self.cache.setObject(image, forKey: cacheKey)
+			// self.cache.setObject(image, forKey: cacheKey)
 			completion(image)
 		}
 

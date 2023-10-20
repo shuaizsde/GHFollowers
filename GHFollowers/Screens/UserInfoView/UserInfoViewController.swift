@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UserInfoViewControllerDelegate {
+protocol UserInfoViewControllerDelegate : AnyObject {
 	func didRequestFollowers(for userName: String)
 }
 
@@ -23,7 +23,7 @@ class UserInfoViewController: GFDataLoadingVC {
 	var username: String!
 	var user: User!
 
-	var followerGridViewDelegate: UserInfoViewControllerDelegate?
+	weak var delegate: UserInfoViewControllerDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -56,7 +56,7 @@ class UserInfoViewController: GFDataLoadingVC {
 				DispatchQueue.main.async { self.configureUIElements(with: user) }
 
 			case .failure(let error):
-				self.presentGFAlertOnMainThread(title: error.title, message: error.rawValue, buttonTitle: "Ok")
+				self.showAlert(title: error.title, message: error.rawValue, buttonTitle: "Ok")
 			}
 		}
 	}
@@ -123,7 +123,7 @@ extension UserInfoViewController: GFItemInfoVCDelegate {
 
 	func didTapGitHubProfile(for user: User) {
 		guard let url = URL(string: user.htmlUrl) else {
-			presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+			showAlert(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
 			return
 		}
 		presentSafariVC(with: url)
@@ -131,14 +131,14 @@ extension UserInfoViewController: GFItemInfoVCDelegate {
 
 	func didTapGetFollowers(for user: User) {
 		guard user.followers != 0 else {
-			presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😞.", buttonTitle: "So sad")
+			showAlert(title: "No followers", message: "This user has no followers. What a shame 😞.", buttonTitle: "So sad")
 			return
 		}
-		followerGridViewDelegate?.didRequestFollowers(for: user.login)
+		delegate?.didRequestFollowers(for: user.login)
 		dismssVC()
 	}
 
-	func didTapItemInfoButton(viewController: UIViewController) {
+	func didTapItemInfoButton(viewController: GFItemInfoVC) {
 		if viewController is GFFollowerItemVC {
 			didTapGetFollowers(for: user)
 		} else if viewController is GFRepoItemVC {
