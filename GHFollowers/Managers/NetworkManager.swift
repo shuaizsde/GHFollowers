@@ -19,6 +19,34 @@ final class NetworkManager {
 
 	init() {}
 
+	func getAuthenticatedUser(completion: @escaping (Result<User, GFError>) -> Void) {
+		let endPoint = "https://api.github.com/user"
+		APIClient.fetchData(url: endPoint) { (result: Result<User, GFNetworkError>) in
+			switch result {
+			case .success(let currentUser):
+				completion(.success(currentUser))
+			case .failure:
+				completion(.failure(GFError.failedToGetCurrentUser))
+			}
+		}
+	}
+
+	func follow(userName: String , completion: @escaping (GFError?) -> Void) {
+		let endPoint = "https://api.github.com/user/following/\(userName)"
+		APIClient.putRequest(url: endPoint) { result in
+			switch result {
+			case .success(let response):
+				if !(response.statusCode >= 200 && response.statusCode < 300 ) {
+					completion(.failedToFollowUser)
+				}else {
+					completion(nil)
+				}
+			case .failure:
+				completion(.failedToFollowUser)
+			}
+		}
+	}
+
 	func getFollowers(for userName: String, page: Int, completion: @escaping (Result<[Follower], GFError>) -> Void) {
 		let endPoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"
 
@@ -28,7 +56,7 @@ final class NetworkManager {
 				completion(.success(followers))
 			case .failure(let error):
 				switch error {
-				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError:
+				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError, .invalidToken:
 					completion(.failure(.networkIssue))
 				case .invalidResponseCode(let code):
 					if code == 404 {
@@ -49,7 +77,7 @@ final class NetworkManager {
 				completion(.success(user))
 			case .failure(let error):
 				switch error {
-				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError:
+				case .emptyData, .unableToDecodeData, .invalidURL, .unexpectedError, .invalidToken:
 					completion(.failure(.networkIssue))
 				case .invalidResponseCode(let code):
 					if code == 404 {

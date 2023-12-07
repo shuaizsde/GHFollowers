@@ -7,7 +7,35 @@
 		<key>GHFollowers.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GHFollowersTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>GHFollowersUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1CE47D442AE9A887001C51FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CE47D512AE9A8DF001C51FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDDFE23D23B6C71E00C026C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

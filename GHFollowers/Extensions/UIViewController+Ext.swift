@@ -35,5 +35,33 @@ extension UIViewController {
 		safariVC.preferredControlTintColor = .systemGreen
 		present(safariVC, animated: true)
 	}
-	
+
+//	struct SubviewPadding {
+//		var top: CGFloat = 0
+//		var bottom: CGFloat = 0
+//		var leading: CGFloat = 0
+//		var trailing: CGFloat = 0
+//	}
+//	enum AppendingDirection {
+//		case top
+//		case bottom
+//		case leading
+//		case trailing
+//	}
+//
+//
+//	func appendView(with view1: UIView, after anotherView: UIView, direction: AppendingDirection, spacing: CGFloat) {
+//
+//	}
+//
+//	func addSubview(with view1: UIView, to parentView: UIView, paddings: SubviewPadding = SubviewPadding()) {
+//		parentView.addSubview(view1)
+//		view1.translatesAutoresizingMaskIntoConstraints = false
+//		NSLayoutConstraint.activate([
+//			view1.topAnchor.constraint(equalTo: parentView.topAnchor, constant: paddings.top),
+//			view1.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: paddings.bottom),
+//			view1.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: paddings.leading),
+//			view1.trailingAnchor.constraint(equalTo: parentView.trailingAnchor, constant: paddings.trailing),
+//		])
+//	}
 }

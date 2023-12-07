@@ -16,6 +16,7 @@ class GFUserInfoHeaderVC: UIViewController {
     let locationImageView   = UIImageView()
     let locationLabel       = GFSecondaryTitleLabel(fontSize: 18)
     let bioLabel            = GFBodyLabel(textAlignment: .left)
+	let followButton		= GFCircledButton(color: .systemGreen, systemImageName: "plus")
     
     var user: User!
     
@@ -46,7 +47,7 @@ class GFUserInfoHeaderVC: UIViewController {
         locationLabel.text          = user.location ?? "No Location"
         bioLabel.text               = user.bio ?? "No bio available"
         bioLabel.numberOfLines      = 3
-        
+		followButton.addTarget(self, action: #selector(followUser), for: .touchUpInside)
         locationImageView.image     = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
     }
@@ -59,9 +60,20 @@ class GFUserInfoHeaderVC: UIViewController {
         view.addSubview(locationImageView)
         view.addSubview(locationLabel)
         view.addSubview(bioLabel)
+		view.addSubview(followButton)
     }
     
-    
+	@objc func followUser() {
+		NetworkManager.shared.follow(userName: user.login) {[weak self] error in
+			guard let self = self else {return}
+			if let error = error {
+				self.showAlert(title: error.title, message: error.rawValue, buttonTitle: "OK")
+			}else {
+				self.showAlert(title: "Success", message: "Successfully Followed \(user.login)", buttonTitle: "OK")
+			}
+		}
+	}
+
     func layoutUI() {
         let padding: CGFloat            = 20
         let textImagePadding: CGFloat   = 12
@@ -72,12 +84,17 @@ class GFUserInfoHeaderVC: UIViewController {
             avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
             avatarImageView.heightAnchor.constraint(equalToConstant: 90),
-            
+
+			followButton.topAnchor.constraint(equalTo: avatarImageView.topAnchor, constant: 8),
+			followButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+			followButton.widthAnchor.constraint(equalToConstant: 25),
+			followButton.heightAnchor.constraint(equalToConstant: 25),
+
             usernameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
-            usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            usernameLabel.trailingAnchor.constraint(equalTo: followButton.leadingAnchor, constant: -textImagePadding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 38),
-            
+
             nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),

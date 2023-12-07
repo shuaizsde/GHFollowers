@@ -13,13 +13,43 @@ class GFAPIClient {
 
 	static let shared = GFAPIClient()
 	let decoder: JSONDecoder
+
 	var token: String? {
 		AuthenticationManager.shared.loadToken()
 	}
+
 	private init() {
 		decoder = JSONDecoder()
 		decoder.keyDecodingStrategy = .convertFromSnakeCase
 		decoder.dateDecodingStrategy = .iso8601
+	}
+
+	func putRequest(url: String, completion: @escaping (Result<HTTPURLResponse, GFNetworkError>) -> Void) {
+		guard let url = URL(string: url) else {
+			completion(.failure(.invalidURL))
+			return
+		}
+		var request = URLRequest(url: url)
+        if let token = self.token, token.count > 10 {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+		request.httpMethod = "PUT"
+		let task = URLSession.shared.dataTask(with: request) { data, response, error in
+			if let error = error {
+				completion(.failure(.unexpectedError(errorMessage: error.localizedDescription)))
+				return
+			}
+
+			guard let response = response as? HTTPURLResponse else {
+				completion(.failure(.unexpectedError(errorMessage: "response is not HTTPURLResponse")))
+				return
+			}
+
+			completion(.success(response))
+		}
+		task.resume()
+
 	}
 
 	func fetchData<Entity>(url: String, completion: @escaping (Result<Entity, GFNetworkError>) -> Void) where Entity: Codable {
@@ -30,9 +60,10 @@ class GFAPIClient {
 		}
 
 		var request = URLRequest(url: url)
-		if let token = self.token {
-			request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-		}
+        if let token = self.token, token.count > 10 {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
 
 		let task = URLSession.shared.dataTask(with: request) { data, response, error in
 			if let error = error {
@@ -74,7 +105,7 @@ class GFAPIClient {
 
 		var request = URLRequest(url: url)
 		
-		if let token = self.token {
+        if let token = self.token, token.count > 10 {
 			request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 		}
 

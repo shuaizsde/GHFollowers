@@ -11,13 +11,13 @@ import UIKit
 class SettingsViewController: UIViewController {
 
 	let tokenInputTextField = GFTextField()
-	let actionButton = GFButton(backgroundColor: .systemGreen, title: "Save")
+	let actionButton = GFButton(backgroundColor: .systemGreen, title: "Save Token")
 	var isUserNameEntered: Bool { !tokenInputTextField.text!.isEmpty }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .systemBackground
-		
+        tokenInputTextField.placeholder = "type your github token"
 		configureUI()
 		createDismissKeyboardTapGesture()
 		configureActions()

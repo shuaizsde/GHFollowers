@@ -101,11 +101,6 @@ class FollowersGridViewController: GFDataLoadingVC {
 			}
 			return nil
 		}
-
-//		// Ensure that there's at least one section
-//		var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
-//		initialSnapshot.appendSections([.main])
-//		dataSource.apply(initialSnapshot, animatingDifferences: false)
 	}
 
 	func configureSearchController() {
@@ -211,9 +206,10 @@ extension FollowersGridViewController: UICollectionViewDelegate {
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
-		let rootViewController = UserInfoViewController(userName: follower.login)
-		rootViewController.delegate = self
-		let destinationVC = UINavigationController(rootViewController: rootViewController)
+		let userInfoViewVC = UserInfoViewController(userName: follower.login)
+		userInfoViewVC.isPresentedAsBottomSheet = true
+		userInfoViewVC.delegate = self
+		let destinationVC = UINavigationController(rootViewController: userInfoViewVC)
 		present(destinationVC, animated: true)
 	}
 

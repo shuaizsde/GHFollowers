@@ -115,7 +115,7 @@
 
 import Foundation
 
-struct Repository: Codable {
+struct Repository: Codable, Hashable {
 	let id: Int
 	let nodeId: String
 	let name: String

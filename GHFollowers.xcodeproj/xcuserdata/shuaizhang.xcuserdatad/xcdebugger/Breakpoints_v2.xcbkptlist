@@ -14,10 +14,42 @@
             filePath = "GHFollowers/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getFollowers(for:page:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8E502DC-9E88-4A0F-A2D3-B5F0340FD19C - e5f2fac3b9946f8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getFollowers(for: Swift.String, page: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "520">
+               </Location>
+               <Location
+                  uuid = "B8E502DC-9E88-4A0F-A2D3-B5F0340FD19C - e5f2fac3b99793e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getFollowers(for: Swift.String, page: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +62,42 @@
             filePath = "GHFollowers/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "getFollowers(for:page:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ACC085F1-EBC5-4804-9222-8FA41EEEA182 - e5f2fac3b9946eeb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getFollowers(for: Swift.String, page: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "628">
+               </Location>
+               <Location
+                  uuid = "ACC085F1-EBC5-4804-9222-8FA41EEEA182 - e5f2fac3b997924f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getFollowers(for: Swift.String, page: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;GHFollowers.Follower&gt;, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "576">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +110,57 @@
             filePath = "GHFollowers/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "getUserInfo(for:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "47EF61D5-A6B4-49F2-A5A1-5C1E331EC987 - 6397757f2c64abfb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1540">
+               </Location>
+               <Location
+                  uuid = "47EF61D5-A6B4-49F2-A5A1-5C1E331EC987 - 6397757f2c67575f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1488">
+               </Location>
+               <Location
+                  uuid = "47EF61D5-A6B4-49F2-A5A1-5C1E331EC987 - 6397757f2c67575f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1600">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +173,57 @@
             filePath = "GHFollowers/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "getUserInfo(for:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C1D1FB2F-68F6-416D-9E68-BB76E54863B2 - 6397757f2c675426"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1816">
+               </Location>
+               <Location
+                  uuid = "C1D1FB2F-68F6-416D-9E68-BB76E54863B2 - 6397757f2c6757ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "1764">
+               </Location>
+               <Location
+                  uuid = "C1D1FB2F-68F6-416D-9E68-BB76E54863B2 - 6397757f2c6757ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFNetworkError&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completion: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "1892">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,42 +236,10 @@
             filePath = "GHFollowers/Screens/FollowersGridView/FollowersGridViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E8410441-8712-4069-9793-2CAEAEB7BE2C - 4a80f85300a90eeb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHFollowers.FollowersGridViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/FollowersGridView/FollowersGridViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "208"
-                  endingLineNumber = "208"
-                  offsetFromSymbolStart = "824">
-               </Location>
-               <Location
-                  uuid = "E8410441-8712-4069-9793-2CAEAEB7BE2C - 4a80f85300a90eeb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHFollowers.FollowersGridViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/FollowersGridView/FollowersGridViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "208"
-                  endingLineNumber = "208"
-                  offsetFromSymbolStart = "156">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,9 +252,599 @@
             filePath = "GHFollowers/Screens/FollowersGridView/FollowersGridViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "searchBarCancelButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E17B2A88-9582-4972-AD9D-061DAB59F49E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "390719BD-B170-471F-867C-38F8EAC47253"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3BD81C3-9A97-4FB2-B8B6-9E3947AE58D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC352AAC-582D-470C-9A76-AEDE43DB2095"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CC352AAC-582D-470C-9A76-AEDE43DB2095 - bffc35eb8f3f72c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "CC352AAC-582D-470C-9A76-AEDE43DB2095 - bffc35eb8f3f7229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "448">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B8531CC-62A4-4B5D-8CCC-5987F60A8A40"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1B8531CC-62A4-4B5D-8CCC-5987F60A8A40 - 4207df71b701b085"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "680">
+               </Location>
+               <Location
+                  uuid = "1B8531CC-62A4-4B5D-8CCC-5987F60A8A40 - bffc35eb8f3f726b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94E54B00-67D3-4F6C-82E9-DB65C5D498B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "94E54B00-67D3-4F6C-82E9-DB65C5D498B4 - bffc35eb8f3f7229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "94E54B00-67D3-4F6C-82E9-DB65C5D498B4 - bffc35eb8f3f720a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84EDBBD8-C2EE-4942-9B75-A1DF8CE127F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C7301BD-C2A4-4915-985F-5291CF997909"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C7301BD-C2A4-4915-985F-5291CF997909 - bffc35eb8f3f728e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "7C7301BD-C2A4-4915-985F-5291CF997909 - bffc35eb8f3f72ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A328BFBB-F0F4-4E7E-8166-54F8947DEEB8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "followUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A328BFBB-F0F4-4E7E-8166-54F8947DEEB8 - bffc35eb8f3f720a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "A328BFBB-F0F4-4E7E-8166-54F8947DEEB8 - bffc35eb8f3f726b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GHFollowers.GFError&gt;) -&gt; () in GHFollowers.GFUserInfoHeaderVC.followUser() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoChildComponents/GFUserInfoHeaderVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C7FDAA9-3F31-4162-A90B-961A3B434795"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95336F4B-4375-40F1-B2A7-4F3A3D28C434"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A20C0DE-18E7-45FE-B640-9843CBEDB23B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "follow(userName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E75BFE09-44C4-498E-817F-5AB76B9FCF01"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB1E3F6E-C309-486B-9B8A-8F9DD9098CA8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3C82459-B34A-47F0-8207-B363436E25FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC497D84-D705-45FF-A980-1B7E76D72F12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC497D84-D705-45FF-A980-1B7E76D72F12 - 38e4e132ddd99219"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.GFAPIClient.putRequest(url: Swift.String, completion: (Swift.Result&lt;__C.NSHTTPURLResponse, GHFollowers.GFNetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/GFAPIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "1324">
+               </Location>
+               <Location
+                  uuid = "FC497D84-D705-45FF-A980-1B7E76D72F12 - 5e372c7317501689"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GHFollowers.GFAPIClient.putRequest(url: Swift.String, completion: (Swift.Result&lt;__C.NSHTTPURLResponse, GHFollowers.GFNetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Managers/GFAPIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C53F692E-DB4D-4DEF-AF50-B66375CB2231"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36E95797-6D9C-44E9-BF13-64D0FB70300E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6B531BC-29F1-4B20-9A97-36F7C4D93C38"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/GFAPIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "putRequest(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F95C48A9-6C25-4111-A6C5-929BF7800B08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoView/UserInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "getUserInfo()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F95C48A9-6C25-4111-A6C5-929BF7800B08 - acf5e9b67dcd0f73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.UserInfoViewController.getUserInfo() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "F95C48A9-6C25-4111-A6C5-929BF7800B08 - 80c20345b1a5bbdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; () in GHFollowers.UserInfoViewController.getUserInfo() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "F95C48A9-6C25-4111-A6C5-929BF7800B08 - acf5e9b67dcd0f31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.UserInfoViewController.getUserInfo() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "F95C48A9-6C25-4111-A6C5-929BF7800B08 - 80c20345b1a5bb9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; () in GHFollowers.UserInfoViewController.getUserInfo() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuaizhang/Developer/GHFollowers/GHFollowers/Screens/UserInfoView/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E2ABE2A-8F13-43B8-B552-45CF8059012E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getUserInfo(for:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,7 +12,7 @@ protocol UserInfoViewControllerDelegate : AnyObject {
 	func didRequestFollowers(for userName: String)
 }
 
-class UserInfoViewController: GFDataLoadingVC {
+class UserInfoViewController: UIViewController {
 
 
 	let headerView          = UIView()
@@ -22,8 +22,11 @@ class UserInfoViewController: GFDataLoadingVC {
 	var itemViews: [UIView] = []
 	var username: String!
 	var user: User!
+	var scrollView = UIScrollView()
+	var containerView = UIView()
 
 	weak var delegate: UserInfoViewControllerDelegate?
+	var isPresentedAsBottomSheet: Bool = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -40,12 +43,15 @@ class UserInfoViewController: GFDataLoadingVC {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+
 	func configureViewController() {
 		view.backgroundColor = .systemBackground
-		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
-		navigationItem.rightBarButtonItem = doneButton
+		navigationController?.navigationBar.prefersLargeTitles = false
+		if isPresentedAsBottomSheet {
+			let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
+			navigationItem.rightBarButtonItem = doneButton
+		}
 	}
-
 
 	func getUserInfo() {
 		NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
@@ -69,8 +75,8 @@ class UserInfoViewController: GFDataLoadingVC {
 		let followerItemVC      = GFFollowerItemVC(user: user)
 		followerItemVC.delegate = self
 
-		self.add(childVC: repoItemVC, to: self.itemViewOne)
-		self.add(childVC: followerItemVC, to: self.itemViewTwo)
+		self.add(childVC: followerItemVC, to: self.itemViewOne)
+		self.add(childVC: repoItemVC, to: self.itemViewTwo)
 		self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
 		self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
 	}
@@ -78,21 +84,43 @@ class UserInfoViewController: GFDataLoadingVC {
 	func layoutUI() {
 		let padding: CGFloat    = 20
 		let itemHeight: CGFloat = 140
+		scrollView.translatesAutoresizingMaskIntoConstraints = false
+		containerView.translatesAutoresizingMaskIntoConstraints = false
+		scrollView.backgroundColor = .red
+		containerView.backgroundColor = .blue
+		
+		view.addSubview(scrollView)
+		scrollView.addSubview(containerView)
+
+
+		NSLayoutConstraint.activate([
+			scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+			containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+			containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+			containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+			containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor)
+
+		])
+
 
 		itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
 
 		for itemView in itemViews {
-			view.addSubview(itemView)
+			containerView.addSubview(itemView)
 			itemView.translatesAutoresizingMaskIntoConstraints = false
 
 			NSLayoutConstraint.activate([
-				itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-				itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+				itemView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -2 * padding),
+				itemView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
 			])
 		}
 
 		NSLayoutConstraint.activate([
-			headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
 			headerView.heightAnchor.constraint(equalToConstant: 180),
 
 			itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
@@ -102,7 +130,8 @@ class UserInfoViewController: GFDataLoadingVC {
 			itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
 
 			dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-			dateLabel.heightAnchor.constraint(equalToConstant: 18)
+			dateLabel.heightAnchor.constraint(equalToConstant: 18),
+			// dateLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
 		])
 	}
 

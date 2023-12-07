@@ -20,6 +20,7 @@ struct User: Codable {
 	let following: Int
 	let followers: Int
 	let createdAt: String
+	let reposUrl: String
 }
 
 extension String {

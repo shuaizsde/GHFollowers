@@ -13,6 +13,8 @@ enum GFError: String, Error {
 	case userNotExist = "This user does not exist. Please try again."
 	case unableToFavorite = "There was an error favoriting this user. Please try again."
 	case alreadyInFavorites = "You've already favorited this user. You must REALLY like them!"
+	case failedToGetCurrentUser = "Failed to get authenticated User"
+	case failedToFollowUser = "Failed to follow this user"
 
 	var title: String {
 		switch self {
@@ -22,6 +24,10 @@ enum GFError: String, Error {
 			return "Unable To Favoriate"
 		case .alreadyInFavorites:
 			return "Already In Favorites"
+		case .failedToGetCurrentUser:
+			return "Invalid Authentication"
+		case .failedToFollowUser:
+			return "Unable to Follow User"
 		}
 		
 	}
@@ -29,6 +35,7 @@ enum GFError: String, Error {
 
 enum GFNetworkError: Error {
 	case invalidURL
+	case invalidToken
 	case invalidResponseCode(statusCode: Int)
 	case emptyData
 	case unableToDecodeData
